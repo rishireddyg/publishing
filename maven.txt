@@ -1,0 +1,35 @@
+# To install maven follow the below steps
+# first log into the linux server
+# create instance --> once instance started --> click on connect --> copy the ssh link
+# open command promt 
+# copy from ssh client
+ssh -i "key.pem" ec2-user@ec2.path.ap-south-1.compute.amazonaws.com
+Once linus server starts first we need to check the java-1.8.0 , basincally to run maven services we required java-1.8.0 and above version.
+to check java version --> type --> java -version
+if it shows java-1.7.0 version we need to install java-1.8-0
+to install java updated version we have to use list grep command as follows
+# sudo yum list | grep java-1.8.0
+once you pass the command we will get the list of java versions
+select required version from the list type
+# sudo yum install java-1.8.0-openjdk-devel.x86_64
+once you installed java version check again the version by using java -version command , if even it is showing java-1.7.0 version then we have to change it to java-1.8.0 version
+# sudo update-alternatives --config java
+oce pass the command shows two versions , in that you have to select latest version by passing numbers which are displayed
+then change the /opt directory
+# cd /opt
+// to install maven follow the below steps
+--> crome browser --> search for maven download --> choose maven download --> under copy the link for Binary tar.gz archive 
+// in cmd
+# sudo wget https://mirrors.estointernet.in/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
+# sudo tar xvf apache-maven-3.6.3-bin.tar.gz
+# sudo rm -R apache-maven-3.6.3-bin.tar.gz  //to remove tar file for cleaning the workspace
+# sudo mv apache-maven to maven3 // for simplifying the process
+# cd /opt/maven3/bin  // move to bin folder
+# vi ~/.bashrc
+# press i for insert 
+# export PATH=/opt/maven3/bin:$PATH    // type path of the maven bin directory
+# :wq //for save and quit from the vi editor
+# source ~/.bashrc // run the command to start the maven 
+# mvn -version //type the command you will get the positive results 
+
+
